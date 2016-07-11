@@ -21,7 +21,6 @@
         },
         init: init
     };
-    
     function init(scope) {
         function onUpdate(data) {
             if(data) {
@@ -50,14 +49,11 @@
                 var urladdress = "\"https://" + piwebapiaddress + "/piwebapi/attributes?path="+path+"\"";
             }
             //Get text box value
-             //var boxval = new String([ $("#box").val() ], { "type" : "text/plain" });
-//             $(‘[name=data]’)[i].value
-             var boxval = new String(scope.config.Box, { "type" : "text/plain" });
-             
-
-             var jsonval = '"{Value:' + boxval + '}"';
-             // Create contents of PI Web API batch request
-             var contents = '{"GetWebID":{"Method": "GET","Resource": '+ urladdress + '},"WriteValuetoPI":{"Method":"POST","Resource": "{0}","Content":' + jsonval + ',"Parameters": ["$.GetWebID.Content.Links.Value"],"ParentIds": ["GetWebID"]}}';
+            var boxval = new String(scope.config.Box, { "type" : "text/plain" });
+            //Create value contents as json
+            var jsonval = '"{Value:' + boxval + '}"';
+            // Create contents of PI Web API batch request
+            var contents = '{"GetWebID":{"Method": "GET","Resource": '+ urladdress + '},"WriteValuetoPI":{"Method":"POST","Resource": "{0}","Content":' + jsonval + ',"Parameters": ["$.GetWebID.Content.Links.Value"],"ParentIds": ["GetWebID"]}}';
 
             //PI Web API Request
             var batchurl = "https://localhost/piwebapi/batch";

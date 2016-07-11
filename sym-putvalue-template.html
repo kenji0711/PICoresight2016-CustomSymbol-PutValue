@@ -1,0 +1,10 @@
+<div ng-style="{background: config.BackgroundColor, color: config.TextColor}">
+    <div ng-show="config.ShowLabel">{{label}}</div>
+    <div id='valueCSV'>{{value}}</div>
+    <div ng-show="config.ShowTime">{{time}}</div>
+    <div id='putvalue' ng-show="config.ShowPutValue">
+    Enter new value :<br>
+    <input type="text" style="margin-left:5px; width:100px;" name="box" ng-model="config.Box" /><br>
+    <a name='putvalue' type="button" ng-click="putvalue()">Put New Value</a><br>
+    </div>
+</div>

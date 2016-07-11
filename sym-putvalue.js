@@ -35,8 +35,8 @@
             }
         }
         scope.putvalue = function() {
-            //piwebapiserver machine name - Normally PI Coresight machine contains PI Web API. So localhost should be fine.
-            var piwebapiaddress = "localhost";
+            //piwebapiserver machine name
+            var piwebapiaddress = "machinename";
             //scope.path contains pi:\\servername\tagname or af:\\servername\databasename\element...|attribute
             var ini = scope.path.substr(0,3);
             var orgpath = scope.path.substr(3,10000);
@@ -56,7 +56,7 @@
             var contents = '{"GetWebID":{"Method": "GET","Resource": '+ urladdress + '},"WriteValuetoPI":{"Method":"POST","Resource": "{0}","Content":' + jsonval + ',"Parameters": ["$.GetWebID.Content.Links.Value"],"ParentIds": ["GetWebID"]}}';
 
             //PI Web API Request
-            var batchurl = "https://localhost/piwebapi/batch";
+            var batchurl = "https://" + piwebapiaddress + "/piwebapi/batch";
             var xhr= new XMLHttpRequest();
             //true = Async call
             xhr.open("POST",batchurl,true);

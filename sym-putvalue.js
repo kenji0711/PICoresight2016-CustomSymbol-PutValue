@@ -2,6 +2,7 @@
     var definition = {
         typeName: 'putvalue',
         datasourceBehavior: CS.DatasourceBehaviors.Single,
+        iconUrl: 'Images/pen.svg',
         getDefaultConfig: function() {
             return {
                 DataShape: 'Value',
